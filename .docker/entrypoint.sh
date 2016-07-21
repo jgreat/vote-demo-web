@@ -28,11 +28,11 @@ if [ "$RANCHER_SERVICE_DISCOVERY" ]; then
   if [ -z "$RABBITMQ_PORT" ]; then
     export RABBITMQ_PORT=$( echo $rabbit | jq -r '.labels["io.leankit.service.port.amqp"]' | sed -e 's/\/\(tcp\|udp\)//' )
   fi
-  if [ -z "$RABBITMQ_USER" ]; then
-    export RABBITMQ_USER=$( echo $rabbit | jq -r '.labels["io.leankit.service.username"]' )
+  if [ -z "$RABBITMQ_USERNAME" ]; then
+    export RABBITMQ_USERNAME=$( echo $rabbit | jq -r '.labels["io.leankit.service.username"]' )
   fi
-  if [ -z "$RABBITMQ_PASS" ]; then
-    export RABBITMQ_PASS=$( echo $rabbit | jq -r '.labels["io.leankit.service.password"]' )
+  if [ -z "$RABBITMQ_PASSWORD" ]; then
+    export RABBITMQ_PASSWORD=$( echo $rabbit | jq -r '.labels["io.leankit.service.password"]' )
   fi
   if [ -z "$RABBITMQ_VHOST" ]; then
     export RABBITMQ_VHOST=$( echo $rabbit | jq -r '.labels["io.leankit.service.vhost"]' )
