@@ -35,10 +35,10 @@ publish:
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service
   cowpoke:
-    image: leankit/drone-cowpoke
+    image: evansnapp/drone-cowpoke:catalog-upgrade
     cowpoke_url: https://cowpoke.leankitdev.com
     cowpoke_port: 8000
     cowpoke_api_key: $$COWPOKE_API_KEY
     cowpoke_catalog_name: rancher-vote-demo-web
-    cowpoke_catalog_upgrade: true
+    cowpoke_catalog_upgrade: True
     docker_owner: jgreat
