@@ -2,7 +2,7 @@
 echo "---- Starting Up Service ---- "
 
 
-if [ "$LK_RANCHER_SERVICE_DISCOVERY" ]; then
+if [ "$RANCHER_SERVICE_DISCOVERY" ]; then
   sleep 1
 
   function get_service {
