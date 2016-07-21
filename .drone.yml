@@ -35,7 +35,7 @@ publish:
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service
   cowpoke:
-    image: evansnapp/drone-cowpoke:catalog-upgrade
+    image: leankit/drone-cowpoke:catalog-upgrade
     cowpoke_url: https://cowpoke.leankitdev.com
     cowpoke_port: 8000
     cowpoke_api_key: $$COWPOKE_API_KEY
