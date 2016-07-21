@@ -21,7 +21,7 @@ publish:
     storage_driver: overlay
   # Publish a Rancher Catalog
   rancher-catalog:
-    image: jgreat/docker-rancher-catalog
+    image: jgreat/drone-rancher-catalog
     docker_username: $$DOCKER_USER
     docker_password: $$DOCKER_PASS
     docker_repo: jgreat/vote-demo-web
