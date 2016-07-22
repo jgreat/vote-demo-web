@@ -1,5 +1,3 @@
-debug: true
-
 build:
   image: node:6
   commands:
@@ -29,8 +27,8 @@ publish:
     docker_repo: jgreat/vote-demo-web
     catalog_repo: jgreat/rancher-vote-demo-web
     github_token: $$GITHUB_TOKEN
-    github_user: Jason Greathouse
-    github_email: jason@jgreat.me
+    github_user: jgreat
+    github_email: jgreat@jgreat.me
 
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service
