@@ -52,6 +52,11 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/../views');
 
 app.get('/', function(req, res) {
+  req.result = 'OK';
+  return res.sendStatus(200);
+});
+
+app.get('/vote', function(req, res) {
   var voterId = voterCookie(req.cookies.voterid);
   var vote;
 
@@ -65,7 +70,7 @@ app.get('/', function(req, res) {
   });
 });
 
-app.post('/', function(req, res) {
+app.post('/vote', function(req, res) {
   var voterId = voterCookie(req.cookies.voterid);
 
   var vote = req.body.vote;
