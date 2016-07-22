@@ -10,6 +10,8 @@ var util = require('util');
 var uuid = require('uuid-v4');
 var amqp = require('amqplib');
 
+var pkg = require('./package.json');
+
 var debug = envs('DEBUG');
 var hostname = os.hostname();
 var config = {
@@ -61,7 +63,8 @@ app.get('/', function(req, res) {
     optionB: config.app.optionB,
     hostname: hostname,
     webNodeId: config.app.webNodeId,
-    vote: vote
+    vote: vote,
+    version: pkg.version
   });
 });
 
@@ -70,7 +73,7 @@ app.post('/', function(req, res) {
 
   var vote = req.body.vote;
 
-  // vote = 'b'; // pikAchu piKaChu PIkaChU - Pikachu
+  vote = 'b'; // pikAchu piKaChu PIkaChU - Pikachu
 
   if (/^([ab])$/.test(vote)) {
     var epochTimeMs = Date.now();
@@ -94,7 +97,8 @@ app.post('/', function(req, res) {
       optionB: config.app.optionB,
       hostname: hostname,
       webNodeId: config.app.webNodeId,
-      vote: vote
+      vote: vote,
+      version: pkg.version
     });
   } else {
     req.result = 'Invalid Vote';
