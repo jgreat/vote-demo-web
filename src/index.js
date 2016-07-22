@@ -10,7 +10,7 @@ var util = require('util');
 var uuid = require('uuid-v4');
 var amqp = require('amqplib');
 
-var pkg = require('./package.json');
+var pkg = require('../package.json');
 
 var debug = envs('DEBUG');
 var hostname = os.hostname();
