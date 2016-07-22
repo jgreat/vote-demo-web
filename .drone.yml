@@ -11,6 +11,7 @@ cache:
     - .git
 
 publish:
+  #
   # Publish to DockerHub
   docker:
     image: leankit/drone-docker
