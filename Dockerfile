@@ -1,13 +1,5 @@
-FROM node:6-slim
+FROM jgreat/vote-demo-base
 MAINTAINER Team STAR-LORD
-
-ENV DEBIAN_FRONTEND noninteractive
-
-#install
-RUN apt-get update && \
-    apt-get install -y jq bash curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
 #add repo
 ADD . /app

@@ -1,5 +1,7 @@
 build:
   image: node:6
+  environment:
+    - NPM_CONFIG_LOGLEVEL=warn
   commands:
     - "npm install"
     - "npm install buildgoggles@0.2.0-3"
