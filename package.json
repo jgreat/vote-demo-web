@@ -1,6 +1,6 @@
 {
   "name": "demo-web-app",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "vote app inspired by dockercon vote app",
   "main": "src/index.js",
   "dependencies": {
