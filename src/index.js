@@ -73,7 +73,7 @@ app.post('/', function(req, res) {
 
   var vote = req.body.vote;
 
-  vote = 'b'; // pikAchu piKaChu PIkaChU - Pikachu
+  //vote = 'b'; // pikAchu piKaChu PIkaChU - Pikachu
 
   if (/^([ab])$/.test(vote)) {
     var epochTimeMs = Date.now();
