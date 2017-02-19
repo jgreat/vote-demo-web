@@ -1,0 +1,12 @@
+
+box: node:6
+
+build:
+  steps:
+    - script:
+        name: echo
+        code: |
+          export NPM_CONFIG_LOGLEVEL=warn
+          npm install
+          npm install buildgoggles@0.2.0-3
+          ./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=ferhimedamine --releaseBranch=master
