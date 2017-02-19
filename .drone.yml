@@ -17,6 +17,7 @@ publish:
   # Publish to DockerHub - Custom drone-docker, runs on "remote" docker instance.
   docker:
     image: jgreat/drone-docker
+    docker_host: tcp://dind.cloudbuzz.io
     username: $$DOCKER_USER
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
