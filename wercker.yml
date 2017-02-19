@@ -4,9 +4,17 @@ box: node:6
 build:
   steps:
     - script:
-        name: echo
+        name: pre-requirements
         code: |
           export NPM_CONFIG_LOGLEVEL=warn
           npm install
           npm install buildgoggles@0.2.0-3
           ./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=ferhimedamine --releaseBranch=master
+
+publish:
+  steps:
+    - internal/docker-push:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
+        repository: ferhimedamine/vote-demo-web
+        registry: https://registry.hub.docker.com
