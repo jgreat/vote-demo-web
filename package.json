@@ -1,7 +1,7 @@
 {
     "name": "demo-web-app",
     "version": "1.2.3",
-    "description": "vote app inspired by dockercon vote app",
+    "description": "vote app inspired by dockercon",
     "main": "src/index.js",
     "dependencies": {
         "amqplib": "^0.4.2",
