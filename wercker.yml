@@ -17,4 +17,3 @@ publish:
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
         repository: ferhimedamine/vote-demo-web
-        registry: https://registry.hub.docker.com
