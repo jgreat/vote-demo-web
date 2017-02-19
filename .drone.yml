@@ -35,4 +35,4 @@ deploy:
     github_email: $$GITHUB_EMAIL
     cowpoke_url: http://cowpoke.cloudbuzz.io
     rancher_catalog_name: vote-demo-web
-    bearer_token: $$COWPOKE_API_KEY
+    bearer_token: 
