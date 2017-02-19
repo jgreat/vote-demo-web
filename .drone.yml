@@ -5,7 +5,7 @@ build:
   commands:
     - "npm install"
     - "npm install buildgoggles@0.2.0-3"
-    - "./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=jgreat --releaseBranch=master"
+    - "./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=ferhimedamine --releaseBranch=master"
 
 cache:
   mount:
@@ -20,7 +20,7 @@ publish:
     username: $$DOCKER_USER
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
-    repo: jgreat/vote-demo-web
+    repo: ferhimedamine/vote-demo-web
 
 deploy:
   # Deploy to Rancher Enviornment via Cowpoke Service
@@ -28,11 +28,11 @@ deploy:
     image: leankit/drone-cowpoke
     docker_username: $$DOCKER_USER
     docker_password: $$DOCKER_PASS
-    docker_repo: jgreat/vote-demo-web
-    catalog_repo: jgreat/rancher-vote-demo-web
+    docker_repo: ferhimedamine/vote-demo-web
+    catalog_repo: ferhimedamine/rancher-vote-demo-web
     github_token: $$GITHUB_TOKEN
     github_user: $$GITHUB_USER
     github_email: $$GITHUB_EMAIL
-    cowpoke_url: https://cowpoke.leankitdev.com:9300
+    cowpoke_url: http://cowpoke.cloudbuzz.io
     rancher_catalog_name: vote-demo-web
     bearer_token: $$COWPOKE_API_KEY
