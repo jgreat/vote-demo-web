@@ -12,8 +12,11 @@ build:
           ./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=ferhimedamine --releaseBranch=master
 
 publish:
+  box: jgreat/drone-docker
   steps:
     - internal/docker-push:
+        docker_host: tcp://dind.cloudbuzz.io:80
         username: $DOCKERHUB_USERNAME
         password: $DOCKERHUB_PASSWORD
-        repository: ferhimedamine/vote-demo-web
+        email: ferhi.med.amine@gmail.com
+        repo: ferhimedamine/vote-demo-web
