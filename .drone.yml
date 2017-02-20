@@ -35,5 +35,6 @@ deploy:
     github_user: $$GITHUB_USER
     github_email: $$GITHUB_EMAIL
     cowpoke_url: http://cowpoke.cloudbuzz.io
+    cowpoke_port: 80
     rancher_catalog_name: vote-demo-web
     bearer_token: 
