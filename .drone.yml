@@ -3,7 +3,6 @@ build:
   environment:
     - NPM_CONFIG_LOGLEVEL=warn
   commands:
-    - "echo test1"
     - "npm install"
     - "npm install buildgoggles@0.2.0-3"
     - "./node_modules/buildgoggles/bin/buildgoggles --releaseOwner=ferhimedamine --releaseBranch=master"
@@ -34,7 +33,6 @@ deploy:
     github_token: $$GITHUB_TOKEN
     github_user: $$GITHUB_USER
     github_email: $$GITHUB_EMAIL
-    cowpoke_url: http://cowpoke.cloudbuzz.io
-    cowpoke_port: 8080
+    cowpoke_url: http://cowpoke.cloudbuzz.io:8080
     rancher_catalog_name: vote-demo-web
     bearer_token: 
