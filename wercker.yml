@@ -14,7 +14,6 @@ build:
 publish:
   box:
     id: jgreat/drone-docker
-    docker_host: tcp://dind.cloudbuzz.io:80
     username: $DOCKERHUB_USERNAME
     password: $DOCKERHUB_PASSWORD
     repository: ferhimedamine/vote-demo-web
