@@ -22,8 +22,7 @@ publish:
     email: $$DOCKER_EMAIL
     repo: ferhimedamine/vote-demo-web
 
-deploy:
-  # Deploy to Rancher Enviornment via Cowpoke Service
+deploy_dev:
   cowpoke:
     image: leankit/drone-cowpoke
     docker_username: $$DOCKER_USER
@@ -33,6 +32,26 @@ deploy:
     github_token: $$GITHUB_TOKEN
     github_user: $$GITHUB_USER
     github_email: $$GITHUB_EMAIL
-    cowpoke_url: http://cowpoke.cloudbuzz.io:8080
+    cowpoke_url: http://cowpoke.dev.cloudbuzz.io:80
     rancher_catalog_name: vote-demo-web
-    bearer_token: 
+    bearer_token:
+    when:
+      event: [push, pull_request, tag]
+
+deploy_test:
+  cowpoke:
+    image: leankit/drone-cowpoke
+    docker_username: $$DOCKER_USER
+    docker_password: $$DOCKER_PASS
+    docker_repo: ferhimedamine/vote-demo-web
+    catalog_repo: ferhimedamine/rancher-vote-demo-web
+    github_token: $$GITHUB_TOKEN
+    github_user: $$GITHUB_USER
+    github_email: $$GITHUB_EMAIL
+    cowpoke_url: http://cowpoke.test.cloudbuzz.io:80
+    rancher_catalog_name: vote-demo-web
+    bearer_token:
+    when:
+      branch:
+        include: [  develop ]
+        exclude: [ master ]
