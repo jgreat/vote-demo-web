@@ -1,0 +1,4 @@
+.chart/
+node_modules/
+.git/
+.gitignore

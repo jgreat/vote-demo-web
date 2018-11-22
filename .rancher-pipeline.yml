@@ -1,0 +1,15 @@
+stages:
+- name: Create Build Tag
+  steps:
+  - runScriptsConfig:
+      image: busybox
+      shellScript: |-
+        echo -n "export TEST_VAR=awesome" >> .env
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: jgreat/vote-demo-web:${TEST_VAR}
+      pushRemote: true
+      registry: index.docker.io
+
+timeout: 10
