@@ -1,7 +1,7 @@
 stages:
 - name: Create Build Tag
   steps:
-  - runScriptsConfig:
+  - runScriptConfig:
       image: busybox
       shellScript: |-
         echo -n "export TEST_VAR=awesome" >> .env
