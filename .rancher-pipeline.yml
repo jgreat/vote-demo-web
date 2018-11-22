@@ -2,7 +2,7 @@ stages:
 - name: Create Build Tag
   steps:
   - runScriptConfig:
-      image: jgreat/drone-build-tag:0.0.2
+      image: jgreat/drone-build-tag:0.0.3
       shellScript: build-tags.sh
 - name: Build and Publish Image
   steps:
@@ -12,7 +12,5 @@ stages:
       tag: jgreat/vote-demo-web:no-tag
       pushRemote: true
       registry: index.docker.io
-      env:
-        PLUGIN_ENV_FILE: .env
 
 timeout: 10
