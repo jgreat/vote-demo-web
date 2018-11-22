@@ -2,13 +2,14 @@ stages:
 - name: Create Build Tag
   steps:
   - runScriptConfig:
-      image: busybox
-      shellScript: |-
-        echo -n "export TEST_VAR=awesome" >> .env
+      image: jgreat/drone-build-tag:0.0.1
+      shellScript: build-tags.sh
+- name: Build and Publish Image
+  steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: jgreat/vote-demo-web:${TEST_VAR}
+      tag: jgreat/vote-demo-web:${PLUGIN_TAG}
       pushRemote: true
       registry: index.docker.io
 
