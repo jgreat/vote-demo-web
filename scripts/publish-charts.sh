@@ -31,11 +31,18 @@ cp -R ./.chart/${CICD_GIT_REPO_NAME} .build/${CHART_NAME}
 sed -i -e "s/%VERSION%/${VERSION}/g" .build/${CHART_NAME}/Chart.yaml
 sed -i -e "s/%CHART_NAME%/${CHART_NAME}/g" .build/${CHART_NAME}/Chart.yaml
 
-# 
+# Init Helm
+helm init -c
+
+# Lint Chart
 helm lint .build/${CHART_NAME}
+
+# Package Chart
 helm package -d .build/charts .build/${CHART_NAME}
 
+# Add Remote Repo
 helm repo add --username ${BASIC_AUTH_USER} --password ${BASIC_AUTH_PASS} \
 ${CICD_GIT_REPO_NAME} https://vote-demo-charts.eng.rancher.space/${CICD_GIT_REPO_NAME}/
 
+# Publish Chart
 helm push .build/charts/${CHART_NAME}-${VERSION}.tgz ${CICD_GIT_REPO_NAME}
