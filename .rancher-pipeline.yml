@@ -20,9 +20,9 @@ stages:
       envFrom:
       - sourceName: chart-creds
         sourceKey: BASIC_AUTH_PASS
-        targetKey: BASIC_AUTH_PASS
+        targetKey: HELM_REPO_PASSWORD
       - sourceName: chart-creds
         sourceKey: BASIC_AUTH_USER
-        targetKey: BASIC_AUTH_USER
+        targetKey: HELM_REPO_USERNAME
 
 timeout: 10
