@@ -8,7 +8,7 @@ if [ -z "${CHART_VERSION}" ]; then
     for t in "${TAGS[@]}"; do
         echo "Found tag: ${t}"
         if [[ $t =~ [v]*[0-9]+\.[0-9]+\.[0-9]+.* ]]; then
-            VERSION=$t
+            CHART_VERSION=$t
             break
         fi
     done

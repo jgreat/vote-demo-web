@@ -17,10 +17,14 @@ stages:
   - runScriptConfig:
       image: jgreat/helm-with-plugins:v2.11.0
       shellScript: ./scripts/publish-charts.sh
+    env:
+      CHART_NAME: '${CICD_GIT_BRANCH}'
+      HELM_REPO_NAME: '${CICD_GIT_REPO}'
+      HELM_REPO_URL: 'https://vote-demo-charts.eng.rancher.space/${CICD_GIT_REPO}/'
     envFrom:
     - sourceName: chart-creds
       sourceKey: BASIC_AUTH_PASS
-      targetKey: HELM_REPO_PASSWORD
+      targetKey: CHART_REPO_PASSWORD
     - sourceName: chart-creds
       sourceKey: BASIC_AUTH_USER
       targetKey: HELM_REPO_USERNAME
