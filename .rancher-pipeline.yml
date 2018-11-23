@@ -17,12 +17,12 @@ stages:
   - runScriptConfig:
       image: jgreat/helm-with-plugins:v2.11.0
       shellScript: ./scripts/publish-charts.sh
-      envFrom:
-      - sourceName: chart-creds
-        sourceKey: BASIC_AUTH_PASS
-        targetKey: HELM_REPO_PASSWORD
-      - sourceName: chart-creds
-        sourceKey: BASIC_AUTH_USER
-        targetKey: HELM_REPO_USERNAME
+    envFrom:
+    - sourceName: chart-creds
+      sourceKey: BASIC_AUTH_PASS
+      targetKey: HELM_REPO_PASSWORD
+    - sourceName: chart-creds
+      sourceKey: BASIC_AUTH_USER
+      targetKey: HELM_REPO_USERNAME
 
 timeout: 10
