@@ -17,13 +17,15 @@ echo "CHART_VERSION: $CHART_VERSION"
 
 # If master then its a "release", else its a feature branch.
 # Releases are named with the git repo name
-# if [ "${CICD_GIT_BRANCH}" == "master" ]; then
-#     echo "Found master branch."
-#     CHART_NAME="${CICD_GIT_REPO_NAME}"
-# else
-#     echo "Found feature branch."
-#     CHART_NAME="${CICD_GIT_BRANCH}"
-# fi
+if [ -z "${CHART_NAME}" ]; then
+    if [ "${CICD_GIT_BRANCH}" == "master" ]; then
+        echo "Found master branch."
+        CHART_NAME="${CICD_GIT_REPO_NAME}"
+    else
+        echo "Found feature branch."
+        CHART_NAME="${CICD_GIT_BRANCH}"
+    fi
+fi
 echo "CHART_NAME: ${CHART_NAME}"
 
 mkdir -p .build/charts
