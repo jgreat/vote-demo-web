@@ -41,8 +41,8 @@ helm lint .build/${CHART_NAME}
 helm package -d .build/charts .build/${CHART_NAME}
 
 # Add Remote Repo
-helm repo add --username ${HELM_REPO_USERNAME} --password ${HELM_REPO_PASSWORD} \
+helm repo add --username "${HELM_REPO_USERNAME}" --password "${HELM_REPO_PASSWORD}" \
 ${CICD_GIT_REPO_NAME} https://vote-demo-charts.eng.rancher.space/${CICD_GIT_REPO_NAME}/
 
-# Publish Chart (username and password in env vars)
+# Publish Chart 
 helm push .build/charts/${CHART_NAME}-${VERSION}.tgz ${CICD_GIT_REPO_NAME}
