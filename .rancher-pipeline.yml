@@ -3,7 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: jgreat/drone-build-tag:0.1.0
-      shellScript: build-tags.sh
+      shellScript: build-tags.sh --include-feature-tag
 - name: Build and Publish Image
   steps:
   - publishImageConfig:
@@ -12,5 +12,17 @@ stages:
       tag: jgreat/vote-demo-web:use-tags-file
       pushRemote: true
       registry: index.docker.io
+- name: Render and Publish Helm Charts
+  steps:
+  - runScriptConfig:
+      image: jgreat/helm-with-plugins:v2.11.0
+      shellScript: ./scripts/publish-charts.sh
+      envFrom:
+      - sourceName: chart-creds
+        sourceKey: BASIC_AUTH_PASS
+        targetKey: BASIC_AUTH_PASS
+      - sourceName: chart-creds
+        sourceKey: BASIC_AUTH_USER
+        targetKey: BASIC_AUTH_USER
 
 timeout: 10
