@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: %VERSION%
-description: A Helm chart for Kubernetes
-name: %CHART_NAME%
-version: %VERSION%

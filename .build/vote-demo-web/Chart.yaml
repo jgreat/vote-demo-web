@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: v1.3.0
-description: A Helm chart for Kubernetes
-name: vote-demo-web
-version: v1.3.0
