@@ -3,4 +3,4 @@ appVersion: %VERSION%
 description: Microservices vote demo.
 name: %CHART_NAME%
 version: %VERSION%
-icon: https://pbs.twimg.com/profile_images/834509623994376192/YJlKEbTS_400x400.jpg
+icon: https://rancher.com/img/brand-guidelines/assets/logos/png/cow/rancher-logo-cow-blue.png
