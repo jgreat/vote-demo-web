@@ -15,8 +15,7 @@ stages:
 - name: Render and Publish Helm Charts
   steps:
   - runScriptConfig:
-      image: jgreat/helm-with-plugins:v2.11.0
-      shellScript: ./scripts/publish-charts.sh
+      image: jgreat/rancher-pipeline-publish-chart:v2.11.0
     env:
       HELM_REPO_NAME: vote-demo-web
       HELM_REPO_URL: https://vote-demo-charts.eng.rancher.space/vote-demo-web/
