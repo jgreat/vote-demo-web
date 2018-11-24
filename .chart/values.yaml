@@ -3,7 +3,7 @@ domainName: eng.rancher.space
 
 image:
   repository: jgreat/vote-demo-web
-  tag: latest
+  # tag: latest
   pullPolicy: IfNotPresent
 
 ingress:
