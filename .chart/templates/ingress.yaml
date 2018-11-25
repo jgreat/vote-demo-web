@@ -1,11 +1,11 @@
-{{- $fullName := include "vote-demo-web.fullname" . -}}
+{{- $fullName := include "local.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "vote-demo-web.name" . }}
-    helm.sh/chart: {{ include "vote-demo-web.chart" . }}
+    app.kubernetes.io/name: {{ include "local.name" . }}
+    helm.sh/chart: {{ include "local.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
