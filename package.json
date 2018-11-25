@@ -1,20 +1,18 @@
 {
-    "name": "demo-web-app",
-    "version": "1.2.3",
-    "description": "vote app inspired by dockercon vote app",
+    "name": "vote-demo-web",
+    "version": "2.0.0",
+    "description": "vote app web",
     "main": "src/index.js",
     "dependencies": {
-        "amqplib": "^0.4.2",
-        "body-parser": "^1.15.2",
+        "amqplib": "^0.5.2",
+        "body-parser": "^1.18.3",
         "cookie-parser": "^1.4.3",
         "envs": "^0.1.6",
-        "express": "^4.14.0",
-        "morgan": "^1.7.0",
+        "express": "^4.16.4",
+        "morgan": "^1.9.1",
         "os": "^0.1.1",
-        "rabbot": "^1.0.3",
-        "request-json": "^0.5.6",
+        "request-json": "^0.6.4",
         "swig": "^1.4.2",
-        "uuid": "^2.0.2",
         "uuid-v4": "^0.1.0"
     },
     "devDependencies": {},
@@ -23,12 +21,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jgreat/demo-web-app.git"
+        "url": "git+https://github.com/jgreat/vote-demo-web.git"
     },
     "author": "Jason Greathouse",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/jgreat/demo-web-app/issues"
+        "url": "https://github.com/jgreat/vote-demo-web/issues"
     },
-    "homepage": "https://github.com/jgreat/demo-web-app#readme"
+    "homepage": "https://github.com/jgreat/vote-demo-web#readme"
 }

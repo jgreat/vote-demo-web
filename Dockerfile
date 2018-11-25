@@ -1,11 +1,12 @@
-FROM jgreat/vote-demo-base
-MAINTAINER Team STAR-LORD
+FROM node:10-alpine
+LABEL maintainer="Jason Greathouse <jgreat@jgreat.me>"
 
-#add repo
-ADD . /app
-
-#Change the working directory to the app root
+ADD ./package.json /app/package.json
 WORKDIR /app
+RUN npm install
+
+# add app
+ADD . /app
 
 #add entrypoint and start up scripts
 ADD .docker /usr/local/bin

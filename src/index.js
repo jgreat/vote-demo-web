@@ -17,7 +17,7 @@ var hostname = os.hostname();
 var config = {
   server: {
     listenIp: envs('LISTEN_IP', '0.0.0.0'),
-    listenPort: envs('LISTEN_PORT', 8001),
+    listenPort: envs('LISTEN_PORT', 8000),
   },
   app: {
     optionA: envs('VOTE_OPTION_A', "Charmander"),
@@ -25,10 +25,10 @@ var config = {
     webNodeId: envs('WEB_NODE_ID', "web1"),
   },
   rabbitmq: {
-    host: envs('RABBITMQ_HOST', 'localhost'),
+    host: envs('RABBITMQ_HOST', 'rabbitmq'),
     username: envs('RABBITMQ_USERNAME', 'guest'),
     password: envs('RABBITMQ_PASSWORD', 'guest'),
-    port: envs('RABBITMQ_PORT', '5672'),
+    port: envs('RABBITMQ_AMQP_PORT', '5672'),
     vhost: envs('RABBITMQ_VHOST', '%2f'),
     queue: envs('RABBITMQ_QUEUE', 'vote')
   }
@@ -86,7 +86,7 @@ app.post('/', function(req, res) {
     .then(function(channel) {
       return channel.assertQueue(voteQueue, {durable: false})
       .then(function(ok) {
-        return channel.sendToQueue(voteQueue, new Buffer(voteData));
+        return channel.sendToQueue(voteQueue, new Buffer.from(voteData));
       });
     })
     .catch(console.warn);
@@ -121,5 +121,5 @@ var server = app.listen(config.server.listenPort, config.server.listenIp, functi
   var port = server.address().port;
   if (debug) console.log('---Config---');
   if (debug) console.log(JSON.stringify(config, null, 4));
-  console.log('demo-web-app listening at http://%s:%s', host, port);
+  console.log('vote-demo-web listening at http://%s:%s', host, port);
 });
