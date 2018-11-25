@@ -15,7 +15,7 @@ stages:
 - name: Render and Publish Helm Charts
   steps:
   - runScriptConfig:
-      image: jgreat/rancher-pipeline-publish-chart:v2.11.0
+      image: jgreat/rancher-pipeline-publish-chart:0.0.1
       shellScript: publish-chart.sh
     env:
       HELM_REPO_NAME: vote-demo-web
@@ -30,7 +30,7 @@ stages:
 - name: Upgrade Catalog Apps
   steps:
   - runScriptConfig:
-      image: jgreat/rancher-pipeline-deploy:0.0.1
+      image: jgreat/rancher-pipeline-deploy:0.0.2
       shellScript: rancher-pipeline-deploy
     env:
       RANCHER_URL: https://jgreat-vote-rancher.eng.rancher.space
