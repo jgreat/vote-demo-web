@@ -1,6 +1,6 @@
 {
     "name": "vote-demo-web",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "vote app web",
     "main": "src/index.js",
     "dependencies": {
