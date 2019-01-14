@@ -1,8 +1,7 @@
 var express = require('express');
-var swig = require('swig');
+var swig = require('swig-templates');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var envs = require('envs');
 var logger = require('morgan');
 var request = require('request-json');
 var os = require('os');
@@ -12,25 +11,25 @@ var amqp = require('amqplib');
 
 var pkg = require('../package.json');
 
-var debug = envs('DEBUG');
+var debug = process.env.DEBUG;
 var hostname = os.hostname();
 var config = {
   server: {
-    listenIp: envs('LISTEN_IP', '0.0.0.0'),
-    listenPort: envs('LISTEN_PORT', 8000),
+    listenIp: process.env.LISTEN_IP || '0.0.0.0',
+    listenPort: process.env.LISTEN_PORT || 8000,
   },
   app: {
-    optionA: envs('VOTE_OPTION_A', "Dumpster"),
-    optionB: envs('VOTE_OPTION_B', "Tire"),
-    webNodeId: envs('WEB_NODE_ID', "web1"),
+    optionA: process.env.VOTE_OPTION_A || 'Dumpster',
+    optionB: process.env.VOTE_OPTION_B || 'Tire',
+    webNodeId: process.env.HOSTNAME || 'web1',
   },
   rabbitmq: {
-    host: envs('RABBITMQ_HOST', 'rabbitmq'),
-    username: envs('RABBITMQ_USERNAME', 'guest'),
-    password: envs('RABBITMQ_PASSWORD', 'guest'),
-    port: envs('RABBITMQ_AMQP_PORT', '5672'),
-    vhost: envs('RABBITMQ_VHOST', '%2f'),
-    queue: envs('RABBITMQ_QUEUE', 'vote')
+    host: process.env.RABBITMQ_HOST || 'rabbitmq',
+    username: process.env.RABBITMQ_USERNAME || 'guest',
+    password: process.env.RABBITMQ_PASSWORD || 'guest',
+    port: process.env.RABBITMQ_AMQP_PORT || 5672,
+    vhost: process.env.RABBITMQ_VHOST || '%2f',
+    queue: process.env.RABBITMQ_QUEUE || 'vote'
   }
 };
 
